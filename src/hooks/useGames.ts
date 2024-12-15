@@ -2,18 +2,21 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 
+export interface Game {
+  id: number;
+  name: string;
+  background_image: string;
+}
+
+// storage of the retrieved games and a varible to indicate the number of games fetched
+interface FetchGamesHTTResponse {
+  count: number;
+  results: Game[];
+}
+
 const useGames = () => {
   // Characteristics of the inidividual games
-  interface Game {
-    id: number;
-    name: string;
-  }
 
-  // storage of the retrieved games and a varible to indicate the number of games fetched
-  interface FetchGamesHTTResponse {
-    count: number;
-    results: Game[];
-  }
   {
     /*
      * games is a state varibale that will hold the array of games fetched from the API, it is initially set to an empty array
