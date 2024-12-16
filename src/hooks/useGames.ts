@@ -12,6 +12,7 @@ export interface Game {
   name: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
 
 // storage of the retrieved games and a varible to indicate the number of games fetched
