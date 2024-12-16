@@ -34,7 +34,7 @@ const useGames = () => {
   }
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
-
+  const [isLoading, setLoading] = useState(false); // for card skeleton while retrieving data
   {
     /*
      * The following hook is used to fetch the data from the API
@@ -46,18 +46,23 @@ const useGames = () => {
   }
   useEffect(() => {
     const controller = new AbortController(); // to signal the cancellation of a fetch or other asynchronous operation
+    setLoading(true);
     apiClient
       .get<FetchGamesHTTResponse>("/games", { signal: controller.signal }) // the signal, controller allows the fetch request to be cancelled if necessary
-      .then((res) => setGames(res.data.results))
+      .then((res) => {
+        setGames(res.data.results);
+        setLoading(false);
+      })
       .catch((err) => {
         // This ix executed if an error is detected
         if (err instanceof CanceledError) return; // no error message is given if it is a CanceledError
         setError(err.message);
+        setLoading(false);
       });
     return () => controller.abort(); // a clean up function to prevent an ongoing requests once the component unmounts/is removed to prevent memory leaks
   }, []); // The empty array is used to ensire that the data is only fetched once from the API
 
-  return { games, error };
+  return { games, error, isLoading };
 };
 
 export default useGames;
