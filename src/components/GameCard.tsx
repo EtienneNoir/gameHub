@@ -5,6 +5,8 @@ import {
   CardFooter,
   Image,
   Heading,
+  Center,
+  Box,
 } from "@chakra-ui/react";
 import { Game } from "../hooks/useGames";
 
@@ -15,12 +17,17 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card bgColor={"#4A5568"} borderRadius={10} overflow={"hidden"}>
-      <Image src={game.background_image} />
-      <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
-      </CardBody>
-    </Card>
+    <Box boxShadow="dark-lg" rounded="md" bg="#4A5568">
+      <Card bgColor={"#4A5568"} borderRadius={10} overflow={"hidden"}>
+        <Image src={game.background_image} />
+        <CardBody>
+          <Center>
+            {" "}
+            <Heading fontSize="2xl">{game.name}</Heading>{" "}
+          </Center>
+        </CardBody>
+      </Card>
+    </Box>
   );
 };
 
