@@ -20,8 +20,6 @@ const GameGrid = ({ selectedGenre }: Props) => {
         padding="10px"
         spacing={3}
       >
-        {isLoading &&
-          skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
         {/* The following goes through each game in the games array and prints each game, its name within a list element, each game is recognized using the game key id*/}
         {data.map((game) => (
           <GameCard key={game.id} game={game} />
