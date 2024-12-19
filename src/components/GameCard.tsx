@@ -11,22 +11,25 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Box boxShadow="dark-lg" rounded="md" bg="gray.700">
-      <Card bgColor="gray.700" borderRadius={10} overflow={"hidden"}>
-        <Image src={getCroppedImageUrl(game.background_image)} />
-        <CardBody padding="20px">
-          <Heading as="h1" fontSize="2xl">
-            {game.name}
-          </Heading>
-          <HStack justifyContent="space-between">
-            <PlatformiconList
-              platforms={game.parent_platforms.map((p) => p.platform)}
-            />
-            <CriticsScore score={game.metacritic} />
-          </HStack>
-        </CardBody>
-      </Card>
-    </Box>
+    <Card
+      boxShadow="dark-lg"
+      bgColor="gray.700"
+      borderRadius={10}
+      overflow={"hidden"}
+    >
+      <Image src={getCroppedImageUrl(game.background_image)} />
+      <CardBody padding="20px">
+        <Heading as="h1" fontSize="2xl">
+          {game.name}
+        </Heading>
+        <HStack justifyContent="space-between">
+          <PlatformiconList
+            platforms={game.parent_platforms.map((p) => p.platform)}
+          />
+          <CriticsScore score={game.metacritic} />
+        </HStack>
+      </CardBody>
+    </Card>
   );
 };
 
