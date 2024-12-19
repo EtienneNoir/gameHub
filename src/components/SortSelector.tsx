@@ -40,7 +40,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
     <Menu>
       <MenuButton
         zIndex={1500}
-        bg="#4A5568"
+        bg="gray.700"
         paddingX="7px"
         paddingY="5px"
         borderRadius={10}

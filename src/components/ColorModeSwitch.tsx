@@ -7,7 +7,7 @@ const ColorModeSwitch = () => {
     <HStack padding="20px">
       //
       <Checkbox isChecked={colorMode === "dark"} onChange={toggleColorMode}>
-        <Text>Dark Mode</Text>
+        <Text whiteSpace="nowrap">Dark Mode</Text>
       </Checkbox>
     </HStack>
   );
