@@ -49,7 +49,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
       >
         Order by: {currentSortOrder?.label || "Relevance"}
       </MenuButton>
-      <MenuList zIndex={1500} bg="#4A5568" paddingX="20px" paddingY="10px">
+      <MenuList zIndex={1500} bg="gray.700" paddingX="20px" paddingY="10px">
         {sortOrders.map((order) => (
           <MenuItem
             onClick={() => onSelectSortOrder(order.values)}
