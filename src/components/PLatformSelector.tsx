@@ -24,7 +24,7 @@ const PLatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
       >
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
-      <MenuList zIndex={1500} bg="gray.700" paddingX="20px" paddingY="10px">
+      <MenuList bg="gray.700" paddingX="20px" paddingY="10px">
         {data.map((platform) => (
           <MenuItem
             onClick={() => onSelectPlatform(platform)}

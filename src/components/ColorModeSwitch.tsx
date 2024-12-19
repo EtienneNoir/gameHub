@@ -1,14 +1,21 @@
-import { Checkbox, HStack, useColorMode, Image, Text } from "@chakra-ui/react";
-import cMode from "../assets/colorMode.png";
+import {
+  Checkbox,
+  HStack,
+  useColorMode,
+  Image,
+  Text,
+  Switch,
+} from "@chakra-ui/react";
 const ColorModeSwitch = () => {
   // colorMode represents the current Mode
   const { toggleColorMode, colorMode } = useColorMode();
   return (
     <HStack padding="20px">
-      //
-      <Checkbox isChecked={colorMode === "dark"} onChange={toggleColorMode}>
-        <Text whiteSpace="nowrap">Dark Mode</Text>
-      </Checkbox>
+      <Switch
+        isChecked={colorMode === "dark"}
+        onChange={toggleColorMode}
+      ></Switch>
+      <Text whiteSpace="nowrap">Dark Mode</Text>
     </HStack>
   );
 };
